@@ -1,0 +1,29 @@
+server:
+  port: 5555
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      fetchRegistry: true
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000/"
+            allowedMethods:
+             - GET
+      routes:
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/product-service/**
+          filters:
+            - StripPrefix=1
