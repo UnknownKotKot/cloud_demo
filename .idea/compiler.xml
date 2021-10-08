@@ -10,15 +10,17 @@
         <module name="product-service" />
         <module name="common" />
         <module name="front-service" />
+        <module name="gateway-service" />
         <module name="eureka-service" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="common" options="-parameters" />
+      <module name="common" options="" />
       <module name="eureka-service" options="-parameters" />
       <module name="front-service" options="-parameters" />
+      <module name="gateway-service" options="-parameters" />
       <module name="product-service" options="-parameters" />
     </option>
   </component>
